@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Chart</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cs/style.css')  }}">
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">MLB Frame</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="#" id="nlw">NL West</a>
+            <a class="nav-item nav-link" href="#" id="nlc">NL Central</a>
+            <a class="nav-item nav-link" href="#" id="nle">NL East</a>
+            <a class="nav-item nav-link" href="#" id="alw">AL West</a>
+            <a class="nav-item nav-link" href="#" id="alc">AL Central</a>
+            <a class="nav-item nav-link" href="#" id="ale">AL East</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+            <!--
+            <div class="list-group list-group-root well">
+                <a href="#nationalLeague" class="list-group-item">
+                    National League
+                </a>
+                <div class="list-group" id="nationalLeague">
+                    <a href="#nlw" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> West
+                    </a>
+                    <div class="list-group collapse" id="nlw">
+                        <a href="#" class="list-group-item">Diamondbacks</a>
+                        <a href="#" class="list-group-item">Dodgers</a>
+                        <a href="#" class="list-group-item">Giants</a>
+                        <a href="#" class="list-group-item">Padres</a>
+                        <a href="#" class="list-group-item">Rockies</a>
+                    </div>
+                    <a href="#nlc" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> Central
+                    </a>
+                    <div class="list-group collapse" id="nlc">
+                        <a href="#" class="list-group-item">Brewers</a>
+                        <a href="#" class="list-group-item">Cardinals</a>
+                        <a href="#" class="list-group-item">Cubs</a>
+                        <a href="#" class="list-group-item">Pirates</a>
+                        <a href="#" class="list-group-item">Reds</a>
+                    </div>
+                    <a href="#nle" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> East
+                    </a>
+                    <div class="list-group collapse" id="nle">
+                        <a href="#" class="list-group-item">Braves</a>
+                        <a href="#" class="list-group-item">Marlins</a>
+                        <a href="#" class="list-group-item">Mets</a>
+                        <a href="#" class="list-group-item">Nationals</a>
+                        <a href="#" class="list-group-item">Phillies</a>
+                    </div>
+                </div>
+                <a href="#americanLeague" class="list-group-item">
+                    American League
+                </a>
+                <div class="list-group" id="americanLeague">
+                    <a href="#alw" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> West
+                    </a>
+                    <div class="list-group collapse" id="alw">
+                        <a href="#" class="list-group-item">Angels</a>
+                        <a href="#" class="list-group-item">Astros</a>
+                        <a href="#" class="list-group-item">Athletics</a>
+                        <a href="#" class="list-group-item">Mariners</a>
+                        <a href="#" class="list-group-item">Rangers</a>
+                    </div>
+                    <a href="#alc" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> Central
+                    </a>
+                    <div class="list-group collapse" id="alc">
+                        <a href="#" class="list-group-item">Indians</a>
+                        <a href="#" class="list-group-item">Royals</a>
+                        <a href="#" class="list-group-item">Tigers</a>
+                        <a href="#" class="list-group-item">Twins</a>
+                        <a href="#" class="list-group-item">White Sox</a>
+                    </div>
+                    <a href="#ale" class="list-group-item" data-toggle="collapse">
+                        <i class="glyphicon glyphicon-chevron-right"></i> East
+                    </a>
+                    <div class="list-group collapse" id="ale">
+                        <a href="#" class="list-group-item">Blue Jays</a>
+                        <a href="#" class="list-group-item">Orioles</a>
+                        <a href="#" class="list-group-item">Rays</a>
+                        <a href="#" class="list-group-item">Red Sox</a>
+                        <a href="#" class="list-group-item">Yankees</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+        <div class="col-md-10">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+<script src="{{ url_for('static', filename='js/team_chart.js') }}"></script>
+</html>
