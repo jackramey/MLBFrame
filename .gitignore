@@ -1,5 +1,6 @@
 # vim history files
 .*.un~
+*.orig
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
