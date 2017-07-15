@@ -81,6 +81,7 @@ $(document).ready(function () {
                 return {
                     label: team_data.team.abbrev,
                     borderColor: team_data.team.color,
+                    backgroundColor: team_data.team.color,
                     fill: false,
                     lineTension: 0,
                     data: team_data.differentials
