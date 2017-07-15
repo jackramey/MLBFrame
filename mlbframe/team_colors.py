@@ -18,7 +18,7 @@ team_colors = {
     'MIN': '#002B5C',
     'NYM': '#FF4A00',
     'NYY': '#003087',
-    'OAK': '#003831',
+    'OAK': '#007B63',
     'PHI': '#E81828',
     'PIT': '#FDB827',
     'SD': '#365680',
@@ -26,7 +26,7 @@ team_colors = {
     'SF': '#FD5A1E',
     'STL': '#C41E3A',
     'TB': '#8FBCE6',
-    'TEX': '#C0111F',
+    'TEX': '#194686',
     'TOR': '#134A8E',
     'WSH': '#AB0003'
 }
