@@ -90,3 +90,6 @@ if __name__ == '__main__':
     end_date = datetime.date.today()
     for single_date in daterange(start_date, end_date):
         process_master_scoreboard(single_date.year, single_date.month, single_date.day)
+    meta = models.Meta.query.order_by(models.Meta.id).first()
+    meta.last_updated = end_date
+    db.session.commit()
