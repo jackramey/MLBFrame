@@ -5,7 +5,7 @@
     <title>Chart</title>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='cs/style.css')  }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')  }}">
 </head>
 <body>
 
@@ -18,12 +18,12 @@
     <a class="navbar-brand" href="#">MLB Frame</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#" id="nlw">NL West</a>
-            <a class="nav-item nav-link" href="#" id="nlc">NL Central</a>
-            <a class="nav-item nav-link" href="#" id="nle">NL East</a>
-            <a class="nav-item nav-link" href="#" id="alw">AL West</a>
-            <a class="nav-item nav-link" href="#" id="alc">AL Central</a>
-            <a class="nav-item nav-link" href="#" id="ale">AL East</a>
+            <div class="nav-item nav-link" id="nlw">NL West</div>
+            <div class="nav-item nav-link" id="nlc">NL Central</div>
+            <div class="nav-item nav-link" id="nle">NL East</div>
+            <div class="nav-item nav-link" id="alw">AL West</div>
+            <div class="nav-item nav-link" id="alc">AL Central</div>
+            <div class="nav-item nav-link" id="ale">AL East</div>
         </div>
     </div>
 </nav>
@@ -110,6 +110,11 @@
         </div>
     </div>
 </div>
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Database last updated: {{last_updated.strftime('%d-%b-%Y')}}</span>
+    </div>
+</footer>
 
 
 </body>

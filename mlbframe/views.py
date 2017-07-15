@@ -12,7 +12,8 @@ from mlbframe.RecordDifferentialCalculator import calculate
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    meta = Meta.query.order_by(Meta.id).first()
+    return render_template("index.html", last_updated=meta.last_updated)
 
 
 @app.route("/differentials")
