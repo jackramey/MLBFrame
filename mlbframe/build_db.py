@@ -1,6 +1,6 @@
 import datetime
 
-from mlbframe import db
+from mlbframe import app, db
 from mlbframe.mlb_api import get_master_scoreboard
 import mlbframe.models as models
 
@@ -89,17 +89,12 @@ def update():
     meta = models.Meta.query.order_by(models.Meta.id).first()
     start_date = meta.last_updated
     end_date = datetime.date.today()
-    print("Updating database:")
-    print("Start date: {}".format(start_date))
-    print("End date: {}".format(end_date))
+    app.logger.info("Updating database...")
+    app.logger.info("Start date: {}".format(start_date))
+    app.logger.info("End date: {}".format(end_date))
     for single_date in daterange(meta.last_updated, datetime.date.today()):
         process_master_scoreboard(single_date.year, single_date.month, single_date.day)
     meta.last_updated = datetime.date.today()
-    print("Done updating database.")
+    app.logger.info("Done updating database.")
     db.session.commit()
 
-if __name__ == '__main__':
-    start_date = datetime.date(2017, 4, 1)
-    end_date = datetime.date.today()
-    for single_date in daterange(start_date, end_date):
-        process_master_scoreboard(single_date.year, single_date.month, single_date.day)

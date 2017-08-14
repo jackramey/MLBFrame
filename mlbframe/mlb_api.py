@@ -1,8 +1,8 @@
 import json
 import logging
 import requests
-import pprintpp
 
+from mlbframe import app
 from .models import Game, Team
 
 
@@ -17,15 +17,14 @@ def get_master_scoreboard(year, month, day):
     d = str(day).zfill(2)
     url = "http://gd2.mlb.com/components/game/mlb/year_{0}/month_{1}/day_{2}/master_scoreboard.json".format(y, m, d)
     log.info("Scoreboard URL: {0}".format(url))
-    print("Scoreboard URL: {0}".format(url))
+    app.logger.info("Scoreboard URL: {0}".format(url))
     data = None
     try:
         resp = requests.get(url)
         resp.raise_for_status()
         data = json.loads(resp.text)
-        #pprintpp.pprint(data)
     except requests.HTTPError:
-        print("Invalid data given.")
+        app.logger.info("Invalid data given.")
     return data
 
 
